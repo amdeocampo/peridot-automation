@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20180710 15:25:47.130" generator="Robot 3.0.2 (Python 2.7.10 on darwin)">
+<suite source="/Users/amdeocampo/Olelo/Automation/Backend/tests/peridot/AGGREGATED-001_likes.robot" id="s1" name="AGGREGATED-001 likes">
+<test id="s1-t1" name="With valid page id and date preset">
+<kw name="Login To Peridot And Get Auth" library="keywords_peridot">
+<arguments>
+<arg>${SETUP_SHEET_NAME}</arg>
+<arg>${VALID_CREDENTIALS_COLUMN}</arg>
+<arg>${SERVER_COLUMN}</arg>
+<arg>${CONTENT_TYPE_HEADER_COLUMN}</arg>
+<arg>${LOGIN_ENDPOINT_COLUMN}</arg>
+</arguments>
+<assign>
+<var>${AUTH_HEADER_VALUE}</var>
+</assign>
+<kw name="Get Credentials" library="keywords_peridot">
+<arguments>
+<arg>${sheet_name}</arg>
+<arg>${creds_header}</arg>
+</arguments>
+<assign>
+<var>${credentials}</var>
+</assign>
+<kw name="Get Specific Excel Data And Split" library="keywords_peridot">
+<arguments>
+<arg>${sheet_name}</arg>
+<arg>${creds_header}</arg>
+</arguments>
+<assign>
+<var>${email}</var>
+<var>${password}</var>
+</assign>
+<kw name="Get Specific Value From Data Framework" library="utility_backend">
+<arguments>
+<arg>${TEST_DATA_COMPLETE_PATH}</arg>
+<arg>${sheet_name}</arg>
+<arg>${column_header}</arg>
+</arguments>
+<assign>
+<var>${credentials}</var>
+</assign>
+<msg timestamp="20180710 15:25:48.433" level="INFO">${credentials} = autobot@olelo.xyz bot12345</msg>
+<status status="PASS" endtime="20180710 15:25:48.433" starttime="20180710 15:25:48.398"></status>
+</kw>
+<kw name="Split Data" library="utility_backend">
+<arguments>
+<arg>${credentials}</arg>
+</arguments>
+<assign>
+<var>${FIRST_DATA}</var>
+<var>${SECOND_DATA}</var>
+</assign>
+<msg timestamp="20180710 15:25:48.434" level="INFO">${FIRST_DATA} = autobot@olelo.xyz</msg>
+<msg timestamp="20180710 15:25:48.434" level="INFO">${SECOND_DATA} = bot12345</msg>
+<status status="PASS" endtime="20180710 15:25:48.434" starttime="20180710 15:25:48.433"></status>
+</kw>
+<msg timestamp="20180710 15:25:48.434" level="INFO">${email} = autobot@olelo.xyz</msg>
+<msg timestamp="20180710 15:25:48.434" level="INFO">${password} = bot12345</msg>
+<status status="PASS" endtime="20180710 15:25:48.434" starttime="20180710 15:25:48.398"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>email=${email}</arg>
+<arg>password=${password}</arg>
+</arguments>
+<assign>
+<var>${CREDENTIALS}</var>
+</assign>
+<msg timestamp="20180710 15:25:48.435" level="INFO">${CREDENTIALS} = {u'email': u'autobot@olelo.xyz', u'password': u'bot12345'}</msg>
+<status status="PASS" endtime="20180710 15:25:48.435" starttime="20180710 15:25:48.434"></status>
+</kw>
+<msg timestamp="20180710 15:25:48.435" level="INFO">${credentials} = {u'email': u'autobot@olelo.xyz', u'password': u'bot12345'}</msg>
+<status status="PASS" endtime="20180710 15:25:48.435" starttime="20180710 15:25:48.397"></status>
+</kw>
+<kw name="Get Headers" library="keywords_peridot">
+<arguments>
+<arg>${sheet_name}</arg>
+<arg>${login_header}</arg>
+</arguments>
+<assign>
+<var>${headers}</var>
+</assign>
+<kw name="Get Specific Excel Data And Split" library="keywords_peridot">
+<arguments>
+<arg>${sheet_name}</arg>
+<arg>${login_header}</arg>
+</arguments>
+<assign>
+<var>${login_header_name}</var>
+<var>${login_header_value}</var>
+</assign>
+<kw name="Get Specific Value From Data Framework" library="utility_backend">
+<arguments>
+<arg>${TEST_DATA_COMPLETE_PATH}</arg>
+<arg>${sheet_name}</arg>
+<arg>${column_header}</arg>
+</arguments>
+<assign>
+<var>${credentials}</var>
+</assign>
+<msg timestamp="20180710 15:25:48.454" level="INFO">${credentials} = Content-Type application/json</msg>
+<status status="PASS" endtime="20180710 15:25:48.454" starttime="20180710 15:25:48.436"></status>
+</kw>
+<kw name="Split Data" library="utility_backend">
+<arguments>
+<arg>${credentials}</arg>
+</arguments>
+<assign>
+<var>${FIRST_DATA}</var>
+<var>${SECOND_DATA}</var>
+</assign>
+<msg timestamp="20180710 15:25:48.454" level="INFO">${FIRST_DATA} = Content-Type</msg>
+<msg timestamp="20180710 15:25:48.454" level="INFO">${SECOND_DATA} = application/json</msg>
+<status status="PASS" endtime="20180710 15:25:48.454" starttime="20180710 15:25:48.454"></status>
+</kw>
+<msg timestamp="20180710 15:25:48.455" level="INFO">${login_header_name} = Content-Type</msg>
+<msg timestamp="20180710 15:25:48.455" level="INFO">${login_header_value} = application/json</msg>
+<status status="PASS" endtime="20180710 15:25:48.455" starttime="20180710 15:25:48.436"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>${login_header_name}=${login_header_value}</arg>
+</arguments>
+<assign>
+<var>${HEADERS}</var>
+</assign>
+<msg timestamp="20180710 15:25:48.455" level="INFO">${HEADERS} = {u'Content-Type': u'application/json'}</msg>
+<status status="PASS" endtime="20180710 15:25:48.455" starttime="20180710 15:25:48.455"></status>
+</kw>
+<msg timestamp="20180710 15:25:48.456" level="INFO">${headers} = {u'Content-Type': u'application/json'}</msg>
+<status status="PASS" endtime="20180710 15:25:48.456" starttime="20180710 15:25:48.435"></status>
+</kw>
+<kw name="Get Login Data" library="keywords_peridot">
+<arguments>
+<arg>${sheet_name}</arg>
+<arg>${server_header}</arg>
+<arg>${endpoint_header}</arg>
+</arguments>
+<assign>
+<var>${ALIAS}</var>
+<var>${baseUrl}</var>
+<var>${login_endpoint}</var>
+</assign>
+<kw name="Get Specific Excel Data And Split" library="keywords_peridot">
+<arguments>
+<arg>${sheet_name}</arg>
+<arg>${server_header}</arg>
+</arguments>
+<assign>
+<var>${ALIAS}</var>
+<var>${BASE_URL}</var>
+</assign>
+<kw name="Get Specific Value From Data Framework" library="utility_backend">
+<arguments>
+<arg>${TEST_DATA_COMPLETE_PATH}</arg>
+<arg>${sheet_name}</arg>
+<arg>${column_header}</arg>
+</arguments>
+<assign>
+<var>${credentials}</var>
+</assign>
+<msg timestamp="20180710 15:25:48.469" level="INFO">${credentials} = peridot-api-staging https://peridot.staging.api.oleloapp.com</msg>
+<status status="PASS" endtime="20180710 15:25:48.469" starttime="20180710 15:25:48.457"></status>
+</kw>
+<kw name="Split Data" library="utility_backend">
+<arguments>
+<arg>${credentials}</arg>
+</arguments>
+<assign>
+<var>${FIRST_DATA}</var>
+<var>${SECOND_DATA}</var>
+</assign>
+<msg timestamp="20180710 15:25:48.469" level="INFO">${FIRST_DATA} = peridot-api-staging</msg>
+<msg timestamp="20180710 15:25:48.469" level="INFO">${SECOND_DATA} = https://peridot.staging.api.oleloapp.com</msg>
+<status status="PASS" endtime="20180710 15:25:48.469" starttime="20180710 15:25:48.469"></status>
+</kw>
+<msg timestamp="20180710 15:25:48.469" level="INFO">${ALIAS} = peridot-api-staging</msg>
+<msg timestamp="20180710 15:25:48.469" level="INFO">${BASE_URL} = https://peridot.staging.api.oleloapp.com</msg>
+<status status="PASS" endtime="20180710 15:25:48.469" starttime="20180710 15:25:48.456"></status>
+</kw>
+<kw name="Get Specific Data From Excel Sheet" library="keywords_peridot">
+<arguments>
+<arg>${sheet_name}</arg>
+<arg>${endpoint_header}</arg>
+</arguments>
+<assign>
+<var>${LOGIN_ENDPOINT}</var>
+</assign>
+<kw name="Get Specific Value From Data Framework" library="utility_backend">
+<arguments>
+<arg>${TEST_DATA_COMPLETE_PATH}</arg>
+<arg>${sheet_name}</arg>
+<arg>${column_header}</arg>
+</arguments>
+<assign>
+<var>${VALUE}</var>
+</assign>
+<msg timestamp="20180710 15:25:48.485" level="INFO">${VALUE} = /auth/login</msg>
+<status status="PASS" endtime="20180710 15:25:48.485" starttime="20180710 15:25:48.470"></status>
+</kw>
+<msg timestamp="20180710 15:25:48.485" level="INFO">${LOGIN_ENDPOINT} = /auth/login</msg>
+<status status="PASS" endtime="20180710 15:25:48.486" starttime="20180710 15:25:48.470"></status>
+</kw>
+<msg timestamp="20180710 15:25:48.486" level="INFO">${ALIAS} = peridot-api-staging</msg>
+<msg timestamp="20180710 15:25:48.486" level="INFO">${baseUrl} = https://peridot.staging.api.oleloapp.com</msg>
+<msg timestamp="20180710 15:25:48.486" level="INFO">${login_endpoint} = /auth/login</msg>
+<status status="PASS" endtime="20180710 15:25:48.486" starttime="20180710 15:25:48.456"></status>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<arguments>
+<arg>${ALIAS}</arg>
+</arguments>
+<msg timestamp="20180710 15:25:48.486" level="INFO">${ALIAS} = peridot-api-staging</msg>
+<status status="PASS" endtime="20180710 15:25:48.486" starttime="20180710 15:25:48.486"></status>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>${alias}</arg>
+<arg>${baseUrl}</arg>
+<arg>verify=True</arg>
+</arguments>
+<msg timestamp="20180710 15:25:48.487" level="INFO">Creating Session using : alias=peridot-api-staging, url=https://peridot.staging.api.oleloapp.com, headers={},                     cookies=None, auth=None, timeout=None, proxies=None, verify=True,                     debug=0 </msg>
+<status status="PASS" endtime="20180710 15:25:48.487" starttime="20180710 15:25:48.486"></status>
+</kw>
+<kw name="Post Request" library="RequestsLibrary">
+<doc>Send a POST request on the session object found using the</doc>
+<arguments>
+<arg>${alias}</arg>
+<arg>${login_endpoint}</arg>
+<arg>data=${credentials}</arg>
+<arg>headers=${headers}</arg>
+</arguments>
+<assign>
+<var>${response}</var>
+</assign>
+<msg timestamp="20180710 15:25:50.312" level="INFO">Post Request using : alias=peridot-api-staging, uri=/auth/login, data={"email": "autobot@olelo.xyz", "password": "bot12345"}, headers={u'Content-Type': u'application/json'}, files=None, allow_redirects=True </msg>
+<msg timestamp="20180710 15:25:50.312" level="INFO">${response} = &lt;Response [422]&gt;</msg>
+<status status="PASS" endtime="20180710 15:25:50.313" starttime="20180710 15:25:48.487"></status>
+</kw>
+<kw name="Check Response Status Code" library="keywords_peridot">
+<arguments>
+<arg>${response.status_code}</arg>
+<arg>200</arg>
+</arguments>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${actualStatus}</arg>
+<arg>${expectedStatus}</arg>
+</arguments>
+<msg timestamp="20180710 15:25:50.314" level="INFO">Argument types are:
+&lt;type 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<msg timestamp="20180710 15:25:50.314" level="FAIL">422 != 200</msg>
+<status status="FAIL" endtime="20180710 15:25:50.314" starttime="20180710 15:25:50.313"></status>
+</kw>
+<status status="FAIL" endtime="20180710 15:25:50.314" starttime="20180710 15:25:50.313"></status>
+</kw>
+<status status="FAIL" endtime="20180710 15:25:50.314" starttime="20180710 15:25:48.396"></status>
+</kw>
+<tags>
+<tag>sanity</tag>
+</tags>
+<status status="FAIL" endtime="20180710 15:25:50.315" critical="yes" starttime="20180710 15:25:48.395">422 != 200</status>
+</test>
+<status status="FAIL" endtime="20180710 15:25:50.315" starttime="20180710 15:25:47.134"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="1" pass="0">Critical Tests</stat>
+<stat fail="1" pass="0">All Tests</stat>
+</total>
+<tag>
+<stat fail="1" pass="0">sanity</stat>
+</tag>
+<suite>
+<stat fail="1" id="s1" name="AGGREGATED-001 likes" pass="0">AGGREGATED-001 likes</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
